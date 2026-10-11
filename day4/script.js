@@ -5,7 +5,7 @@ const clearBtn = document.getElementById('clear-btn');
 const themeToggle = document.getElementById('theme-toggle');
 
 //Update both counters and the warning classes
-function updateCounters() {
+function updateCounts() {
   const text = noteText.value;
   const chars = text.length;
   const trimmed = text.trim();
@@ -27,7 +27,7 @@ function saveDraft() {
 function clearAll() {
   noteText.value = "";
   localStorage.removeItem("draft");
-  updateCounters();
+  updateCounts();
 }
 
 // Switch the theme and update the button label
@@ -39,7 +39,7 @@ function applyTheme(theme) {
 
 //Every time the user types
 noteText.addEventListener("input", function () {
-  updateCounters();
+  updateCounts();
   saveDraft();
 });
 
