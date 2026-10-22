@@ -115,6 +115,6 @@ Users (phones and browsers)
 ## 9. Trade-offs
 
 - **Caching: speed vs fresh data.** A cache makes feeds load much faster and protects the database, but the cached copy can be out of date. We must invalidate it when data changes, and a mistake there can show users old content.
-- **Read replica: scalability vs consistency.** The replica copies the primary with a small delay, so a user may upload a photo and not see it in the feed for a moment. We can reduce this by reading a user's own recent data from the primary.
+- **Read replica: scalability vs consistency.** The replica copies the primary with a small delay, so a user may upload a photo and not see it in the feed for a moment (eventual consistency). We can reduce this by reading a user's own recent data from the primary.
 - **Queue and worker: fast uploads vs delayed thumbnails.** The upload responds quickly because the thumbnail is made in the background, but the thumbnail appears a few seconds later. The app must handle a photo whose thumbnail is not ready yet.
 - **CDN and thumbnails: speed vs cost.** Thumbnails and the CDN make feeds fast and save bandwidth, but they add storage (about 18 TB a year) and CDN fees, and they add more parts to run and monitor.
